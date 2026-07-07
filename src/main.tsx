@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { AuthProvider } from "react-oidc-context";
 import type { User } from "oidc-client-ts";
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "@/index.css";
 
 const oidcConfig = {
