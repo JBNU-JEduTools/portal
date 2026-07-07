@@ -1,7 +1,9 @@
 import { Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || "jedutools@gmail.com";
+const ADMIN_EMAIL = (import.meta.env.VITE_ADMIN_EMAIL || "jedutools|gmail.com")
+  .split("|")
+  .join("@");
 
 export default function Contact() {
   return (
