@@ -81,10 +81,9 @@ const affiliationUrls: Record<string, string> = {
   "SSAFY": "https://www.ssafy.com",
 }
 
-function SectionHeading({ number, title, description }: { number: string; title: string; description: string }) {
+function SectionHeading({ title, description }: { title: string; description: string }) {
   return (
-    <header className="mb-6 grid grid-cols-[38px_minmax(0,1fr)] items-start gap-2.5 border-b border-[#d0d5dd] pb-5 sm:mb-[30px] sm:grid-cols-[48px_minmax(0,1fr)]">
-      <span aria-hidden="true" className="pt-1.5 text-[13px] font-bold tracking-[0.08em] text-[#1c5492]">{number}</span>
+    <header className="mb-6 border-b border-[#d0d5dd] pb-5 sm:mb-[30px]">
       <div>
         <h2 className="text-2xl font-bold leading-[1.3] tracking-[-0.035em] text-[#101828] sm:text-[28px]">{title}</h2>
         <p className="mt-2 text-[15px] leading-[1.65] text-[#667085] [word-break:keep-all]">{description}</p>
@@ -100,8 +99,8 @@ function ProfileCard({ member, featured = false }: { member: Member; featured?: 
       : "grid min-w-0 grid-cols-[96px_minmax(0,1fr)] overflow-hidden rounded-[10px] border border-[#e4e7ec] bg-white shadow-[0_1px_2px_rgba(16,24,40,0.04)] sm:grid-cols-[104px_minmax(0,1fr)] lg:h-[183px] lg:grid-cols-[136px_minmax(0,1fr)]"}
     >
       <div className={featured
-        ? "w-[180px] overflow-hidden border-r border-[#e4e7ec] bg-[#eef3f8] sm:h-full sm:w-[150px]"
-        : "h-full w-24 overflow-hidden border-r border-[#e4e7ec] bg-[#eef3f8] sm:w-[104px] lg:w-[136px]"}
+        ? "w-[180px] overflow-hidden border-r border-[#e4e7ec] bg-[#f8fafc] sm:h-full sm:w-[150px]"
+        : "h-full w-24 overflow-hidden border-r border-[#e4e7ec] bg-[#f8fafc] sm:w-[104px] lg:w-[136px]"}
       >
         <img
           src={member.image}
@@ -152,7 +151,7 @@ export default function MembersPage() {
   }, [])
 
   return (
-    <main className="bg-[#f7f8fa] text-[#1f2937]">
+    <main className="bg-white text-[#1f2937]">
       <section className="border-b border-[#e4e7ec] bg-white py-11 sm:py-14">
         <div className="relative mx-auto w-full max-w-screen-xl px-6 pl-11 sm:px-8 sm:pl-[54px] lg:px-12 lg:pl-[70px] before:absolute before:bottom-1 before:left-6 before:top-1 before:w-[3px] before:rounded-full before:bg-[#1c5492] before:content-[''] sm:before:left-8 lg:before:left-12">
           <p className="mb-3 text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#1c5492]">JEduTools · Development Team</p>
@@ -163,19 +162,19 @@ export default function MembersPage() {
 
       <div className="mx-auto w-full max-w-screen-xl px-4 py-[58px] sm:px-6 sm:py-[76px] lg:px-8 lg:pb-[108px]">
         <section className="mb-[68px] sm:mb-[88px]" aria-labelledby="professor-heading">
-          <div id="professor-heading"><SectionHeading number="01" title="교수" description="JEduTools 연구와 개발을 이끄는 지도교수입니다." /></div>
+          <div id="professor-heading"><SectionHeading title="교수" description="JEduTools 연구와 개발을 이끄는 지도교수입니다." /></div>
           <ProfileCard member={professor} featured />
         </section>
 
         <section className="mb-[68px] sm:mb-[88px]" aria-labelledby="students-heading">
-          <div id="students-heading"><SectionHeading number="02" title="학부 연구생" description="JEduTools와 함께 연구하고 개발하는 학부 연구생입니다." /></div>
+          <div id="students-heading"><SectionHeading title="학부 연구생" description="JEduTools와 함께 연구하고 개발하는 학부 연구생입니다." /></div>
           <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
             {students.map((student) => <ProfileCard key={student.email} member={student} />)}
           </div>
         </section>
 
         <section aria-labelledby="alumni-heading">
-          <div id="alumni-heading"><SectionHeading number="03" title="졸업생" description="JEduTools와 함께했던 졸업생들의 현재 소식입니다." /></div>
+          <div id="alumni-heading"><SectionHeading title="졸업생" description="JEduTools와 함께했던 졸업생들의 현재 소식입니다." /></div>
           <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
             {alumni.map((person, index) => (
               <article key={`${person.name}-${index}`} className="grid min-h-[108px] grid-cols-[34px_minmax(0,1fr)] items-center gap-2 border-b border-[#e4e7ec] px-1 py-[22px] sm:grid-cols-[42px_minmax(0,1fr)]">

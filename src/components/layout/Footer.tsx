@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 py-6 mt-10">
+    <footer className="mt-10 border-t border-gray-200 bg-white py-6">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 로고 영역 */}
         <div className="flex justify-center items-center gap-6 mb-4">
