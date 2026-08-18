@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import Contact from "@/components/home/Contact"
 
 type Member = {
   name: string
@@ -160,7 +161,7 @@ export default function MembersPage() {
         </div>
       </section>
 
-      <div className="mx-auto w-full max-w-screen-xl px-4 py-[58px] sm:px-6 sm:py-[76px] lg:px-8 lg:pb-[108px]">
+      <div className="mx-auto w-full max-w-screen-xl px-4 py-[58px] sm:px-6 sm:pt-[76px] sm:pb-10 lg:px-8">
         <section className="mb-[68px] sm:mb-[88px]" aria-labelledby="professor-heading">
           <div id="professor-heading"><SectionHeading title="교수" description="JEduTools 연구와 개발을 이끄는 지도교수입니다." /></div>
           <ProfileCard member={professor} featured />
@@ -191,6 +192,7 @@ export default function MembersPage() {
           <p className="mt-[22px] border-l-2 border-[#d0d5dd] py-0.5 pl-3.5 text-[13px] leading-[1.6] text-[#667085]">졸업생의 현재 소식은 확인되는 대로 업데이트됩니다.</p>
         </section>
       </div>
+      <Contact />
     </main>
   )
 }
