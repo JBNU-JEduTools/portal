@@ -5,7 +5,7 @@ export default function Footer() {
         {/* 로고 영역 */}
         <div className="flex justify-center items-center gap-6 mb-4">
           <div className="flex justify-center items-center gap-2">
-            <img src="img/jedutools.png" alt="Logo" className="w-8 h-8" />
+            <img src="/img/jedutools.png" alt="JEduTools" className="w-8 h-8" />
             <h1 className="text-2xl font-bold text-[#034287]">
               JEduTools
             </h1>
@@ -17,7 +17,7 @@ export default function Footer() {
             className="flex items-center"
           >
             <img
-              src="img/swuniv.png" // 로고 이미지 경로
+              src="/img/swuniv.png" // 로고 이미지 경로
               alt="Related Organization"
               className="h-10" // 로고 크기 조정
             />

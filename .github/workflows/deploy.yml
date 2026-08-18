@@ -33,6 +33,9 @@ jobs:
           VITE_KEYCLOAK_REALMS: JEduTools
           VITE_ADMIN_EMAIL: jedutools|gmail.com
 
+      - name: Create SPA fallback
+        run: cp ./dist/index.html ./dist/404.html
+
       - name: Create CNAME
         run: echo "jedutools.jbnu.ac.kr" > ./dist/CNAME
 
