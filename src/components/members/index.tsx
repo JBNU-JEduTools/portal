@@ -103,6 +103,7 @@ function ProfileCard({ member, featured = false }: { member: Member; featured?: 
       >
         <img
           src={member.image}
+          draggable={false}
           alt={`${member.name} 프로필 사진`}
           loading={featured ? "eager" : "lazy"}
           decoding="async"
