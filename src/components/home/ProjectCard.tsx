@@ -34,6 +34,7 @@ export default function ProjectCard({
         <div className="flex items-center justify-center p-4 overflow-hidden h-28">
           <img
             src={imgSrc}
+            draggable={false}
             alt={`${title} 로고`}
             className="object-contain w-auto h-full max-w-full"
           />

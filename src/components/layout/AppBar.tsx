@@ -129,7 +129,7 @@ export default function AppBar() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center">
-                <img src="/img/jedutools.png" alt="" className="h-8 w-auto mr-2" />
+                <img src="/img/jedutools.png" alt="" draggable={false} className="h-8 w-auto mr-2" />
                 <span className="text-2xl font-bold text-[#034287]">JEduTools</span>
               </Link>
             </div>

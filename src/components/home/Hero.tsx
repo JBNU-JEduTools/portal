@@ -125,6 +125,7 @@ export default function Hero() {
               >
                 <img
                   src={item.imageSrc}
+                  draggable={false}
                   alt={`${item.name} 대시보드`}
                   className="object-cover object-top w-full h-full"
                 />
