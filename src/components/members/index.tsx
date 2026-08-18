@@ -4,7 +4,6 @@ import Contact from "@/components/home/Contact"
 type Member = {
   name: string
   nameEn: string
-  role?: string
   department?: string
   interest?: string
   email: string
@@ -20,7 +19,6 @@ type AlumniMember = {
 const professor: Member = {
   name: "박현찬",
   nameEn: "Hyunchan Park",
-  role: "교수",
   interest: "운영체제, 가상화 시스템",
   email: "hyunchan.park@jbnu.ac.kr",
   image: "/img/members/park-hyunchan.jpg",
@@ -113,8 +111,7 @@ function ProfileCard({ member, featured = false }: { member: Member; featured?: 
             : "h-full min-h-[183px] w-full object-cover object-top"}
         />
       </div>
-      <div className={featured ? "self-center p-6 sm:px-6 sm:py-4" : "min-w-0 px-[18px] py-4"}>
-        <p className="mb-1.5 text-xs font-bold tracking-[0.08em] text-[#1c5492]">{member.role || "학부 연구생"}</p>
+      <div className={featured ? "self-center p-6 sm:px-6 sm:py-4" : "min-w-0 self-center px-[18px] py-4"}>
         <h3 className="flex flex-col gap-[3px] leading-[1.3] text-[#101828]">
           <span className="text-[21px] font-bold tracking-[-0.025em]">{member.name}</span>
           <small className="text-sm font-medium text-[#667085]">{member.nameEn}</small>
@@ -154,10 +151,10 @@ export default function MembersPage() {
   return (
     <main className="bg-white text-[#1f2937]">
       <section className="border-b border-[#e4e7ec] bg-white py-11 sm:py-14">
-        <div className="relative mx-auto w-full max-w-screen-xl px-6 pl-11 sm:px-8 sm:pl-[54px] lg:px-12 lg:pl-[70px] before:absolute before:bottom-1 before:left-6 before:top-1 before:w-[3px] before:rounded-full before:bg-[#1c5492] before:content-[''] sm:before:left-8 lg:before:left-12">
+        <div className="mx-auto w-full max-w-screen-xl px-6 text-center sm:px-8 lg:px-12">
           <p className="mb-3 text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#1c5492]">JEduTools · Development Team</p>
           <h1 className="text-[40px] font-extrabold leading-[1.12] tracking-[-0.055em] text-[#101828] sm:text-[52px]">구성원</h1>
-          <p className="mt-[17px] max-w-[650px] text-[15px] font-medium leading-7 text-[#475467] [word-break:keep-all] sm:text-base">운영체제와 가상화 시스템을 연구하며, 교육과 기술을 연결하는 도구를 함께 만들어갑니다.</p>
+          <p className="mx-auto mt-[17px] max-w-[650px] text-[15px] font-medium leading-7 text-[#475467] [word-break:keep-all] sm:text-base">운영체제와 가상화 시스템을 연구하며, 교육과 기술을 연결하는 도구를 함께 만들어갑니다.</p>
         </div>
       </section>
 
