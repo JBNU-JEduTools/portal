@@ -162,10 +162,7 @@ export default function AppBar() {
               </button>
               <Link
                 to="/members"
-                className={cn(
-                  "font-medium transition-colors hover:text-blue-600",
-                  location.pathname === "/members" ? "text-[#034287]" : "text-gray-700"
-                )}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 구성원
               </Link>
