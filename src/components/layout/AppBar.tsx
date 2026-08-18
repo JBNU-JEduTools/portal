@@ -14,9 +14,12 @@ import { User, LogOut, Loader2 } from "lucide-react"
 import { useKeycloak } from "@/hooks/useKeycloak"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 export default function AppBar() {
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const {
     isLoading,
@@ -26,6 +29,25 @@ export default function AppBar() {
     user,
   } = useKeycloak()
   const username = user?.profile.preferred_username
+
+  const scrollToElement = (id: string) => {
+    const element = document.getElementById(id)
+    if (!element) return
+
+    const appBarHeight = 56
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY
+
+    window.scrollTo({
+      top: elementPosition - appBarHeight,
+      behavior: "smooth",
+    })
+  }
+
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash) {
+      window.requestAnimationFrame(() => scrollToElement(location.hash.slice(1)))
+    }
+  }, [location.hash, location.pathname])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,17 +63,12 @@ export default function AppBar() {
   }, [])
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      const appBarHeight = 56 // AppBar의 높이를 64px에서 56px로 변경 (h-14)
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY
-      const offsetPosition = elementPosition - appBarHeight
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
+    if (location.pathname !== "/") {
+      navigate(`/#${id}`)
+      return
     }
+
+    scrollToElement(id)
   }
 
   const AuthButtons = () => {
@@ -102,16 +119,19 @@ export default function AppBar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b-0`}
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md transition-all duration-300",
+          scrolled ? "border-b border-gray-200/80 shadow-sm" : "border-b border-transparent"
+        )}
       >
         <div className={`container mx-auto px-4 sm:px-6 lg:px-8`}>
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="flex items-center">
-                <img src="img/jedutools.png" alt="Logo" className="h-8 w-auto mr-2" />
+              <Link to="/" className="flex items-center">
+                <img src="/img/jedutools.png" alt="" className="h-8 w-auto mr-2" />
                 <span className="text-2xl font-bold text-[#034287]">JEduTools</span>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation - 이제 md 이상 화면에서만 보임 */}
@@ -140,6 +160,15 @@ export default function AppBar() {
               >
                 문의하기
               </button>
+              <Link
+                to="/members"
+                className={cn(
+                  "font-medium transition-colors hover:text-blue-600",
+                  location.pathname === "/members" ? "text-[#034287]" : "text-gray-700"
+                )}
+              >
+                구성원
+              </Link>
             </nav>
 
             {/* Auth Buttons - Desktop */}
