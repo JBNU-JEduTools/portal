@@ -44,8 +44,14 @@ export default function ExpandableNoticeSection() {
 
   if (!isLoading && totalNoticeCount === 0 && !error) {
     return (
-      <div className="max-w-screen-xl mx-auto w-full bg-white py-3 px-4 text-center">
-        <p>등록된 공지사항이 없습니다.</p>
+      <div id="announcements" className="max-w-screen-xl mx-auto w-full bg-white py-3 px-4">
+        <div className="flex items-center mb-3">
+          <Bell className="h-5 w-5 text-blue-800 mr-2" />
+          <h2 className="font-medium text-gray-800">공지사항</h2>
+        </div>
+        <div className="rounded-lg border border-dashed border-gray-200 bg-gray-50 px-4 py-5 text-center text-sm text-gray-500">
+          현재 공지사항이 없습니다.
+        </div>
       </div>
     )
   }
