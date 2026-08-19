@@ -34,7 +34,7 @@ const students: Member[] = [
   { name: "정보승", nameEn: "Jung Boseung", department: "컴퓨터인공지능학부", email: "202524409@jbnu.ac.kr", image: "/img/members/jung-boseung.jpg" },
   { name: "길민준", nameEn: "Gil Minjun", department: "컴퓨터공학부", email: "soet02@jbnu.ac.kr", image: "/img/members/gil-minjun.jpg" },
   { name: "김민성", nameEn: "Kim Minsung", department: "소프트웨어공학과", email: "funniest@jbnu.ac.kr", image: "/img/members/kim-minsung.jpg" },
-  { name: "승연", nameEn: "Nguyen Thi Ngoc Duyen", department: "컴퓨터인공지능학과", email: "dn16032004@jbnu.ac.kr", image: "/img/members/seungyeon.jpg" },
+  { name: "승연", nameEn: "Nguyen Thi Ngoc Duyen", department: "컴퓨터인공지능학부", email: "dn16032004@jbnu.ac.kr", image: "/img/members/seungyeon.jpg" },
   { name: "홍채운", nameEn: "Hong Chae Un", department: "컴퓨터공학부", email: "hcw88928@jbnu.ac.kr", image: "/img/members/hong-chaeun.jpg" },
 ]
 
