@@ -13,6 +13,7 @@ type Member = {
 type AlumniMember = {
   name: string
   nameEn: string
+  studentId: string
   currentAffiliation?: string
 }
 
@@ -37,28 +38,37 @@ const students: Member[] = [
 ]
 
 const alumni: AlumniMember[] = [
-  { name: "김진오", nameEn: "Kim Jinoh" },
-  { name: "추승지", nameEn: "Chu Seungji", currentAffiliation: "한국투자증권" },
-  { name: "김형중", nameEn: "Kim Hyeongjung", currentAffiliation: "하나금융TI" },
-  { name: "서예진", nameEn: "Seo Yejin", currentAffiliation: "DB Inc (동부아이엔씨)" },
-  { name: "장윤정", nameEn: "Jang Yunjung", currentAffiliation: "메가존클라우드" },
-  { name: "김요셉", nameEn: "Kim Yosep" },
-  { name: "고영훈", nameEn: "Go Younghun", currentAffiliation: "고려대학교 대학원" },
-  { name: "신승원", nameEn: "Shin Seungwon", currentAffiliation: "삼성SDS" },
-  { name: "권기남", nameEn: "Kwon Ginam", currentAffiliation: "삼성전자" },
-  { name: "이명규", nameEn: "Lee Myeonggyu", currentAffiliation: "금융결제원" },
-  { name: "김민지", nameEn: "Kim Minji" },
-  { name: "정지호", nameEn: "Jung Jiho", currentAffiliation: "우아한테크코스(배민 부트캠프)" },
-  { name: "남윤수", nameEn: "Nam YounSu", currentAffiliation: "고려대학교 대학원" },
-  { name: "김규호", nameEn: "Kim Gyuho", currentAffiliation: "SK Inc. AX" },
-  { name: "진순헌", nameEn: "Jin SoonHeon", currentAffiliation: "신용보증기금" },
-  { name: "김담은", nameEn: "Kim DamEun", currentAffiliation: "하이비전시스템" },
-  { name: "박은송", nameEn: "Park EunSong", currentAffiliation: "신한펀드파트너스" },
-  { name: "허민", nameEn: "Heo Min", currentAffiliation: "서강대학교 대학원" },
-  { name: "허완", nameEn: "Heo Yan", currentAffiliation: "저축은행중앙회" },
-  { name: "김진석", nameEn: "Kim JinSeok", currentAffiliation: "한전KDN" },
-  { name: "김은혜", nameEn: "Kim EunHye", currentAffiliation: "SSAFY" },
+  { name: "김진오", nameEn: "Kim Jinoh", studentId: "201614822" },
+  { name: "추승지", nameEn: "Chu Seungji", studentId: "201414301", currentAffiliation: "한국투자증권" },
+  { name: "김형중", nameEn: "Kim Hyeongjung", studentId: "201414222", currentAffiliation: "하나금융TI" },
+  { name: "서예진", nameEn: "Seo Yejin", studentId: "201811235", currentAffiliation: "DB Inc (동부아이엔씨)" },
+  { name: "장윤정", nameEn: "Jang Yunjung", studentId: "201812179", currentAffiliation: "메가존클라우드" },
+  { name: "김요셉", nameEn: "Kim Yosep", studentId: "201821688" },
+  { name: "고영훈", nameEn: "Go Younghun", studentId: "201711032", currentAffiliation: "고려대학교 대학원" },
+  { name: "신승원", nameEn: "Shin Seungwon", studentId: "201716403", currentAffiliation: "삼성SDS" },
+  { name: "권기남", nameEn: "Kwon Ginam", studentId: "201716357", currentAffiliation: "삼성전자" },
+  { name: "이명규", nameEn: "Lee Myeonggyu", studentId: "201716422", currentAffiliation: "금융결제원" },
+  { name: "김민지", nameEn: "Kim Minji", studentId: "201911773" },
+  { name: "정지호", nameEn: "Jung Jiho", studentId: "201818784", currentAffiliation: "우아한테크코스(배민 부트캠프)" },
+  { name: "남윤수", nameEn: "Nam YounSu", studentId: "201850686", currentAffiliation: "고려대학교 대학원" },
+  { name: "김규호", nameEn: "Kim Gyuho", studentId: "201921967", currentAffiliation: "SK Inc. AX" },
+  { name: "진순헌", nameEn: "Jin SoonHeon", studentId: "202018023", currentAffiliation: "신용보증기금" },
+  { name: "김담은", nameEn: "Kim DamEun", studentId: "202219352", currentAffiliation: "하이비전시스템" },
+  { name: "박은송", nameEn: "Park EunSong", studentId: "202219386", currentAffiliation: "신한펀드파트너스" },
+  { name: "허민", nameEn: "Heo Min", studentId: "202219460", currentAffiliation: "서강대학교 대학원" },
+  { name: "허완", nameEn: "Heo Yan", studentId: "202018416", currentAffiliation: "저축은행중앙회" },
+  { name: "김진석", nameEn: "Kim JinSeok", studentId: "202012180", currentAffiliation: "한전KDN" },
+  { name: "김은혜", nameEn: "Kim EunHye", studentId: "202212112", currentAffiliation: "SSAFY" },
 ]
+
+const alumniByEntryYear = alumni.reduce<Record<string, AlumniMember[]>>((groups, person) => {
+  const entryYear = person.studentId.slice(0, 4)
+  groups[entryYear] ??= []
+  groups[entryYear].push(person)
+  return groups
+}, {})
+
+const alumniEntryYears = Object.keys(alumniByEntryYear).sort((a, b) => Number(b) - Number(a))
 
 const affiliationUrls: Record<string, string> = {
   "한국투자증권": "https://securities.koreainvestment.com/main/Main.jsp",
@@ -155,7 +165,6 @@ export default function MembersPage() {
         <div className="mx-auto w-full max-w-screen-xl px-6 text-center sm:px-8 lg:px-12">
           <p className="mb-3 text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#1c5492]">JEduTools · Development Team</p>
           <h1 className="text-[40px] font-extrabold leading-[1.12] tracking-[-0.055em] text-[#101828] sm:text-[52px]">구성원</h1>
-          <p className="mx-auto mt-[17px] max-w-[650px] text-[15px] font-medium leading-7 text-[#475467] [word-break:keep-all] sm:text-base">운영체제와 가상화 시스템을 연구하며, 교육과 기술을 연결하는 도구를 함께 만들어갑니다.</p>
         </div>
       </section>
 
@@ -174,17 +183,25 @@ export default function MembersPage() {
 
         <section aria-labelledby="alumni-heading">
           <div id="alumni-heading"><SectionHeading title="졸업생" description="JEduTools와 함께했던 졸업생들의 현재 소식입니다." /></div>
-          <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
-            {alumni.map((person, index) => (
-              <article key={`${person.name}-${index}`} className="grid min-h-[108px] grid-cols-[34px_minmax(0,1fr)] items-center gap-2 border-b border-[#e4e7ec] px-1 py-[22px] sm:grid-cols-[42px_minmax(0,1fr)]">
-                <span className="text-xs font-bold tracking-[0.06em] text-[#98a2b3]">{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3 className="flex flex-wrap items-baseline gap-[7px] text-xl font-bold leading-[1.4] text-[#101828]">
-                    {person.name}<small className="text-base font-medium text-[#667085]">{person.nameEn}</small>
-                  </h3>
-                  <AlumniAffiliation person={person} />
+          <div className="space-y-10">
+            {alumniEntryYears.map((entryYear) => (
+              <section key={entryYear} aria-labelledby={`alumni-${entryYear}-heading`}>
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="h-5 w-1 shrink-0 rounded-full bg-[#1c5492]" aria-hidden="true" />
+                  <h3 id={`alumni-${entryYear}-heading`} className="text-lg font-bold text-[#1c5492]">{entryYear}학번</h3>
                 </div>
-              </article>
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                  {alumniByEntryYear[entryYear].map((person) => (
+                    <article key={person.name} className="min-h-[108px] rounded-[10px] bg-[#f8fafc] px-4 py-4">
+                      <h4 className="flex flex-wrap items-baseline gap-[7px] text-xl font-bold leading-[1.4] text-[#101828]">
+                        {person.name}<small className="text-base font-medium text-[#667085]">{person.nameEn}</small>
+                        <span className="rounded-full border border-[#c9dcef] bg-[#f0f6fc] px-2 py-0.5 text-[11px] font-bold leading-[1.4] tracking-[0.01em] text-[#1c5492]">학번 {person.studentId}</span>
+                      </h4>
+                      <AlumniAffiliation person={person} />
+                    </article>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
           <p className="mt-[22px] border-l-2 border-[#d0d5dd] py-0.5 pl-3.5 text-[13px] leading-[1.6] text-[#667085]">졸업생의 현재 소식은 확인되는 대로 업데이트됩니다.</p>
