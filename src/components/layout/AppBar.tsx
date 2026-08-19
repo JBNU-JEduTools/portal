@@ -44,8 +44,26 @@ export default function AppBar() {
   }
 
   useEffect(() => {
-    if (location.pathname === "/" && location.hash) {
-      window.requestAnimationFrame(() => scrollToElement(location.hash.slice(1)))
+    if (location.pathname !== "/" || !location.hash) return
+
+    let attempts = 0
+    let timeoutId: number | undefined
+    const scrollWhenReady = () => {
+      const element = document.getElementById(location.hash.slice(1))
+      if (element) {
+        scrollToElement(location.hash.slice(1))
+        return
+      }
+
+      if (attempts < 40) {
+        attempts += 1
+        timeoutId = window.setTimeout(scrollWhenReady, 50)
+      }
+    }
+
+    scrollWhenReady()
+    return () => {
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId)
     }
   }, [location.hash, location.pathname])
 

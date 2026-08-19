@@ -195,7 +195,6 @@ export default function MembersPage() {
                     <article key={person.name} className="min-h-[108px] rounded-[10px] bg-[#f8fafc] px-4 py-4">
                       <h4 className="flex flex-wrap items-baseline gap-[7px] text-xl font-bold leading-[1.4] text-[#101828]">
                         {person.name}<small className="text-base font-medium text-[#667085]">{person.nameEn}</small>
-                        <span className="rounded-full border border-[#c9dcef] bg-[#f0f6fc] px-2 py-0.5 text-[11px] font-bold leading-[1.4] tracking-[0.01em] text-[#1c5492]">학번 {person.studentId}</span>
                       </h4>
                       <AlumniAffiliation person={person} />
                     </article>
