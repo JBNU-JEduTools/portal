@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import Contact from "@/components/home/Contact"
+import { ArrowRight } from "lucide-react"
 
 type Member = {
   name: string
@@ -162,9 +163,18 @@ export default function MembersPage() {
   return (
     <main className="bg-white text-[#1f2937]">
       <section className="border-b border-[#e4e7ec] bg-white py-11 sm:py-14">
-        <div className="mx-auto w-full max-w-screen-xl px-6 text-center sm:px-8 lg:px-12">
+        <div className="relative mx-auto w-full max-w-screen-xl px-6 text-center sm:px-8 lg:px-12">
           <p className="mb-3 text-[13px] font-extrabold uppercase tracking-[0.12em] text-[#1c5492]">JEduTools · Development Team</p>
           <h1 className="text-[40px] font-extrabold leading-[1.12] tracking-[-0.055em] text-[#101828] sm:text-[52px]">구성원</h1>
+          <a
+            href="https://litmus.jedutools.io/about/#team-info"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#d0d5dd] bg-white px-4 py-2 text-[13px] font-semibold tracking-[0.02em] text-[#1c5492] transition-colors hover:bg-[#f8fafc] focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1c5492] sm:absolute sm:bottom-0 sm:right-8 sm:mt-0 lg:right-12"
+          >
+            LITMUS TEAM
+            <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" strokeWidth={2} />
+          </a>
         </div>
       </section>
 
