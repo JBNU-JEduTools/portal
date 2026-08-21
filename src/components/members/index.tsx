@@ -40,6 +40,10 @@ const students: Member[] = [
 
 const alumni: AlumniMember[] = [
   { name: "김진오", nameEn: "Kim Jinoh", studentId: "201614822" },
+  { name: "장준희", nameEn: "Jang Junhee", studentId: "2014", currentAffiliation: "현대자동차" },
+  { name: "윤준하", nameEn: "Yoon Junha", studentId: "2013", currentAffiliation: "삼성전자" },
+  { name: "이창헌", nameEn: "Lee Changheon", studentId: "2017", currentAffiliation: "NEXON GAMES" },
+  { name: "최지민", nameEn: "Choi Jimin", studentId: "2014", currentAffiliation: "EBS" },
   { name: "추승지", nameEn: "Chu Seungji", studentId: "201414301", currentAffiliation: "한국투자증권" },
   { name: "김형중", nameEn: "Kim Hyeongjung", studentId: "201414222", currentAffiliation: "하나금융TI" },
   { name: "서예진", nameEn: "Seo Yejin", studentId: "201811235", currentAffiliation: "DB Inc (동부아이엔씨)" },
@@ -72,6 +76,7 @@ const alumniByEntryYear = alumni.reduce<Record<string, AlumniMember[]>>((groups,
 const alumniEntryYears = Object.keys(alumniByEntryYear).sort((a, b) => Number(b) - Number(a))
 
 const affiliationUrls: Record<string, string> = {
+  "현대자동차": "https://www.hyundai.com/kr/ko/e",
   "한국투자증권": "https://securities.koreainvestment.com/main/Main.jsp",
   "하나금융TI": "https://www.hanati.co.kr/kor/main.do?type=kor",
   "DB Inc (동부아이엔씨)": "https://www.dbinc.co.kr",
@@ -79,6 +84,8 @@ const affiliationUrls: Record<string, string> = {
   "고려대학교 대학원": "https://graduate.korea.ac.kr",
   "삼성SDS": "https://www.samsungsds.com/kr",
   "삼성전자": "https://www.samsung.com/sec",
+  "NEXON GAMES": "https://www.nexongames.co.kr",
+  "EBS": "https://www.ebs.co.kr",
   "금융결제원": "https://community.kftc.or.kr/kftc/main/EgovkftcMain.do",
   "우아한테크코스(배민 부트캠프)": "https://www.woowacourse.io",
   "SK Inc. AX": "https://www.skax.co.kr",
