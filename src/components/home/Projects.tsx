@@ -20,7 +20,6 @@ export interface Project {
   docs: string | null;
   link?: string | null; // link도 null일 수 있음을 명시
   linkbtn?: React.ReactNode; // 옵셔널로 변경
-  actionButtonColor?: string; // JFlow 프로젝트용 색상
 }
 
 // 링크 버튼 생성 헬퍼 함수
@@ -131,8 +130,7 @@ const jflowProjects: Project[] = [
     imgSrc: "img/gitlab.png",
     github: null,
     docs: "https://jhelper.jedutools.io/JFlow/1GitlabGuide",
-    link: "https://gitlab.jbnu.ac.kr",
-    actionButtonColor: "#8A5ED8",
+    link: null,
   },
   {
     title: "Jenkins",
@@ -141,8 +139,7 @@ const jflowProjects: Project[] = [
     imgSrc: "img/jenkins.png",
     github: null,
     docs: "https://jhelper.jedutools.io/JFlow/2JenkinsGuide",
-    link: "https://jenkins.jbnu.ac.kr",
-    actionButtonColor: "#8A5ED8",
+    link: null,
   },
   {
     title: "Harbor",
@@ -151,8 +148,7 @@ const jflowProjects: Project[] = [
     imgSrc: "img/harbor.png",
     github: null,
     docs: "https://jhelper.jedutools.io/JFlow/3HarborGuide",
-    link: "https://harbor.jbnu.ac.kr",
-    actionButtonColor: "#8A5ED8",
+    link: null,
   },
   {
     title: "Sonarqube",
@@ -161,8 +157,7 @@ const jflowProjects: Project[] = [
     imgSrc: "img/sonarqube.png",
     github: null,
     docs: "https://jhelper.jedutools.io/JFlow/4SonarQubeGuide",
-    link: "https://sonarqube.jbnu.ac.kr",
-    actionButtonColor: "#8A5ED8",
+    link: null,
   },
   {
     title: "Grafana",
@@ -171,8 +166,7 @@ const jflowProjects: Project[] = [
     imgSrc: "img/grafana.png",
     github: null,
     docs: "https://jhelper.jedutools.io/JFlow/5Grafana",
-    link: "https://grafana.jbnu.ac.kr",
-    actionButtonColor: "#8A5ED8",
+    link: null,
   },
 ];
 
@@ -222,8 +216,10 @@ export default function Projects() {
               description={project.description}
               imgSrc={project.imgSrc}
               linkbtn={createLinkButton(
-                project.link,
-                project.actionButtonColor
+                null,
+                undefined,
+                "서비스 준비중",
+                Construction
               )}
               github={project.github}
               docs={project.docs}
