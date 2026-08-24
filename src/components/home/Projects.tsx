@@ -77,7 +77,7 @@ const projectList: Project[] = [
     description:
       "클라우드 상의 가상 머신, 가상 네트워크, 가상 스토리지 등의 서비스를 제공합니다. 학생들은 수업 및 개인 학습 용도로 활용할 수 있습니다.",
     imgSrc: "/img/jcloud.png",
-    link: "https://jcloud.jedutools.io/identity/v3/auth/OS-FEDERATION/identity_providers/jsso-keycloak/protocols/openid/websso?origin=https://jcloud.jedutools.io/dashboard/auth/websso/",
+    link: "https://jcloud.jedutools.io/auth/login",
     github: null,
     docs: "https://jhelper.jedutools.io/JCloud",
   },
