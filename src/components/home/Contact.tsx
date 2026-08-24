@@ -1,5 +1,6 @@
 import { Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { MouseEvent } from "react";
 
 const ADMIN_EMAIL = (import.meta.env.VITE_ADMIN_EMAIL || "jedutools|gmail.com")
   .split("|")
@@ -7,6 +8,24 @@ const ADMIN_EMAIL = (import.meta.env.VITE_ADMIN_EMAIL || "jedutools|gmail.com")
 const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
   ADMIN_EMAIL
 )}`;
+
+const openGmailCompose = (event: MouseEvent<HTMLAnchorElement>) => {
+  const width = Math.min(700, window.screen.availWidth);
+  const height = Math.min(650, window.screen.availHeight);
+  const left = Math.round(window.screenX + (window.outerWidth - width) / 2);
+  const top = Math.round(window.screenY + (window.outerHeight - height) / 2);
+  const popup = window.open(
+    GMAIL_COMPOSE_URL,
+    "gmail-compose",
+    `popup=yes,width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
+  );
+
+  if (popup) {
+    event.preventDefault();
+    popup.opener = null;
+    popup.focus();
+  }
+};
 
 export default function Contact() {
   return (
@@ -28,6 +47,7 @@ export default function Contact() {
               href={GMAIL_COMPOSE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={openGmailCompose}
               className="inline-flex items-center"
             >
               <Mail className="w-5 h-5 mr-2 -ml-1" />
