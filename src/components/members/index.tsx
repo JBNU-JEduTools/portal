@@ -39,9 +39,12 @@ const students: Member[] = [
 ]
 
 const alumni: AlumniMember[] = [
+  { name: "윤준하", nameEn: "Yoon Joona", studentId: "2012" },
+  { name: "한휘", nameEn: "Han Hwi", studentId: "2013", currentAffiliation: "Atlasian" },
+  { name: "박수진", nameEn: "", studentId: "2013" },
+  { name: "장준희", nameEn: "Jang Junhee", studentId: "2016" },
+  { name: "성주용", nameEn: "Seong juyong", studentId: "2016", currentAffiliation: "한국투자증권" },
   { name: "김진오", nameEn: "Kim Jinoh", studentId: "201614822" },
-  { name: "장준희", nameEn: "Jang Junhee", studentId: "2014", currentAffiliation: "현대자동차" },
-  { name: "윤준하", nameEn: "Yoon Junha", studentId: "2013", currentAffiliation: "삼성전자" },
   { name: "이창헌", nameEn: "Lee Changheon", studentId: "2017", currentAffiliation: "NEXON GAMES" },
   { name: "최지민", nameEn: "Choi Jimin", studentId: "2014", currentAffiliation: "EBS" },
   { name: "추승지", nameEn: "Chu Seungji", studentId: "201414301", currentAffiliation: "한국투자증권" },
@@ -76,6 +79,7 @@ const alumniByEntryYear = alumni.reduce<Record<string, AlumniMember[]>>((groups,
 const alumniEntryYears = Object.keys(alumniByEntryYear).sort((a, b) => Number(b) - Number(a))
 
 const affiliationUrls: Record<string, string> = {
+  "Atlasian": "https://www.atlassian.com",
   "현대자동차": "https://www.hyundai.com/kr/ko/e",
   "한국투자증권": "https://securities.koreainvestment.com/main/Main.jsp",
   "하나금융TI": "https://www.hanati.co.kr/kor/main.do?type=kor",
