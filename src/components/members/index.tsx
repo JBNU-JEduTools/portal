@@ -39,10 +39,10 @@ const students: Member[] = [
 ]
 
 const alumni: AlumniMember[] = [
-  { name: "윤준하", nameEn: "Yoon Joona", studentId: "2012" },
+  { name: "윤준하", nameEn: "Yoon Joona", studentId: "2012", currentAffiliation: "삼성전자" },
   { name: "한휘", nameEn: "Han Hwi", studentId: "2013", currentAffiliation: "Atlasian" },
   { name: "박수진", nameEn: "", studentId: "2013" },
-  { name: "장준희", nameEn: "Jang Junhee", studentId: "2016" },
+  { name: "장준희", nameEn: "Jang Junhee", studentId: "2016", currentAffiliation: "현대자동차" },
   { name: "성주용", nameEn: "Seong juyong", studentId: "2016", currentAffiliation: "한국투자증권" },
   { name: "김진오", nameEn: "Kim Jinoh", studentId: "201614822" },
   { name: "이창헌", nameEn: "Lee Changheon", studentId: "2017", currentAffiliation: "NEXON GAMES" },
