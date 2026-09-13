@@ -29,8 +29,6 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          VITE_KEYCLOAK_URL: https://key.jedutools.io
-          VITE_KEYCLOAK_REALMS: JEduTools
           VITE_ADMIN_EMAIL: jedutools|gmail.com
 
       - name: Create SPA fallback
