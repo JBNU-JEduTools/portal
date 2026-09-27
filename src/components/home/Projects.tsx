@@ -120,6 +120,15 @@ const projectList: Project[] = [
     docs: "https://jhelper.jedutools.io/Portal",
     linkbtn: createLinkButton(null, undefined, "현재 페이지", Home),
   },
+  {
+    title: "AWS Academy",
+    description:
+      "전북대학교 학생이 클라우드와 AI를 각자 진도에 맞춰 배우는 온라인 교육과정입니다. 과정 안내와 수강 신청을 제공합니다.",
+    imgSrc: "/img/aws-academy.svg",
+    link: "https://aws.jedutools.io/",
+    github: null,
+    docs: "https://jhelper.jedutools.io/AWSAcademy/",
+  },
 ];
 
 const jflowProjects: Project[] = [
