@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 433 130" role="img" aria-labelledby="title">
+  <title id="title">AWS Academy</title>
+  <g fill="none" stroke="#182952" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+    <path d="M79 83h-8a18 18 0 0 1-2-36 29 29 0 0 1 55-6 21 21 0 0 1 7 42H79z"/>
+    <path d="m82 59 16-7 16 7-16 7-16-7z"/>
+    <path d="M88 63v9c6 5 14 5 20 0v-9"/>
+  </g>
+  <text x="155" y="61" fill="#182952" font-family="Arial, sans-serif" font-size="32" font-weight="700">AWS</text>
+  <text x="155" y="94" fill="#182952" font-family="Arial, sans-serif" font-size="32" font-weight="700">Academy</text>
+  <path d="M155 104h199" stroke="#ff9900" stroke-linecap="round" stroke-width="5"/>
+</svg>
